@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <sstream>
 #include <queue>
+#include <cstdlib>
 
 AVLTree::~AVLTree()
 {
@@ -158,8 +159,11 @@ void AVLTree::deleteItem(int itemKey, Node* node, Node* parent)
         childDirection = RIGHT;
     }
 
-    this->deleteItem(itemKey, node->left, node);
-    this->balanceNode(child, node, parent, childDirection);
+    this->deleteItem(itemKey, child, node);
+
+    if (abs(this->getNodeBalance(node)) != 1) {
+        this->balanceNode(child, node, parent, childDirection);
+    }
 }
 
 void AVLTree::deleteNode(Node* node, Node* parent)
