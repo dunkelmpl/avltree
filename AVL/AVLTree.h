@@ -89,7 +89,7 @@ private:
     void deleteLeaf(Node* leaf, Node* parent);
     void deleteNodeWithOneKid(Node* node, Node* parent);
     void deleteNodeWithBothKids(Node* node, Node* parent);
-    Node* getNextSuccessor(Node* baseNode, Node** nextSuccessorParent);
+    Node* getInorderSuccessor(Node* baseNode, Node** inorderSuccessorParent);
 
 private:
     Node* top;

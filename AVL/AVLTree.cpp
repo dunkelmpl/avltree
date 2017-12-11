@@ -216,31 +216,31 @@ void AVLTree::deleteNodeWithOneKid(Node* node, Node* parent)
 
 void AVLTree::deleteNodeWithBothKids(Node* node, Node* parent)
 {
-    Node* nextSuccessorParent = nullptr;
-    Node* nextSuccessor = this->getNextSuccessor(node, &nextSuccessorParent);
+    Node* inorderSuccessorParent = nullptr;
+    Node* inorderSuccessor = this->getInorderSuccessor(node, &inorderSuccessorParent);
 
-    node->key = nextSuccessor->key;
+    node->key = inorderSuccessor->key;
 
-    if (nextSuccessorParent->left == nextSuccessor) {
-        nextSuccessorParent->left = nullptr;
+    if (inorderSuccessorParent->left == inorderSuccessor) {
+        inorderSuccessorParent->left = nullptr;
     } else {
-        nextSuccessorParent->right = nullptr;
+        inorderSuccessorParent->right = nullptr;
     }
 
-    delete nextSuccessor;
+    delete inorderSuccessor;
 }
 
-AVLTree::Node* AVLTree::getNextSuccessor(Node* baseNode, Node** nextSuccessorParent)
+AVLTree::Node* AVLTree::getInorderSuccessor(Node* baseNode, Node** inorderSuccessorParent)
 {
-    Node* nextSuccessor = baseNode->right;
-    *nextSuccessorParent = baseNode;
+    Node* inorderSuccessor = baseNode->right;
+    *inorderSuccessorParent = baseNode;
 
-    while (nextSuccessor->left) {
-        *nextSuccessorParent = nextSuccessor;
-        nextSuccessor = nextSuccessor->left;
+    while (inorderSuccessor->left) {
+        *inorderSuccessorParent = inorderSuccessor;
+        inorderSuccessor = inorderSuccessor->left;
     }
 
-    return nextSuccessor;
+    return inorderSuccessor;
 }
 
 void AVLTree::updateNodeHeight(Node* node)
