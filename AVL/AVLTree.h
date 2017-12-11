@@ -1,13 +1,5 @@
 ﻿#pragma once
 
-#include <iostream>
-
-using namespace std;
-
-#ifndef max
-#define max(x, y) (x > y ? x : y)
-#endif
-
 class AVLTree
 {
 private:

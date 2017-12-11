@@ -1,9 +1,16 @@
 #include "AVLTree.h"
 
+#include <iostream>
 #include <stdexcept>
 #include <sstream>
 #include <queue>
 #include <cstdlib>
+
+using namespace std;
+
+#ifndef max
+#define max(x, y) (x > y ? x : y)
+#endif
 
 AVLTree::~AVLTree()
 {
