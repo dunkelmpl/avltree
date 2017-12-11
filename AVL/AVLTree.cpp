@@ -285,10 +285,7 @@ void AVLTree::rotateLeft(Node* pivotNode, Node* parent, Node* grandParent)
     this->updateNodeHeight(parent);
     this->updateNodeHeight(pivotNode);
 
-    // grandParent != NULL means we need to fix its child reference
-    if (grandParent) {
-        this->fixGrandParentAfterRotation(pivotNode, parent, grandParent);
-    }
+    this->fixGrandParentAfterRotation(pivotNode, parent, grandParent);
 }
 
 void AVLTree::rotateRight(Node* pivotNode, Node* parent, Node* grandParent)
@@ -300,10 +297,7 @@ void AVLTree::rotateRight(Node* pivotNode, Node* parent, Node* grandParent)
     this->updateNodeHeight(parent);
     this->updateNodeHeight(pivotNode);
 
-    // grandParent != NULL means we need to fix its child reference
-    if (grandParent) {
-        this->fixGrandParentAfterRotation(pivotNode, parent, grandParent);
-    }
+    this->fixGrandParentAfterRotation(pivotNode, parent, grandParent);
 }
 
 void AVLTree::fixGrandParentAfterRotation(Node* newParent, Node* oldParent, Node* grandParent)
