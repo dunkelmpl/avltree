@@ -91,6 +91,8 @@ void AVLTree::printDFS(TraversalType type, Node* node)
             this->printDFS(type, node->right);
             cout << ' ' << node->key;
             break;
+        default:
+            throw invalid_argument("Unknown tree traversal type.");
     }
 }
 
