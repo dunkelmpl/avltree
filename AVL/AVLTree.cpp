@@ -311,16 +311,21 @@ void AVLTree::fixGrandParentAfterRotation(Node* newParent, Node* oldParent, Node
     }
 }
 
-AVLTree::BalanceFactor AVLTree::getNodeBalanceFactor(Node* node)
+int AVLTree::getNodeBalance(Node* node)
 {
-    int balance = (node
+    return (node
         ? this->getNodeHeight(node->right) - this->getNodeHeight(node->left)
         : 0
-        );
+    );
+}
 
-    if (balance <= -1) {
+AVLTree::BalanceFactor AVLTree::getNodeBalanceFactor(Node* node)
+{
+    int balance = this->getNodeBalance(node);
+
+    if (balance < -1) {
         return LEFTHEAVY;
-    } else if (balance >= 1) {
+    } else if (balance > 1) {
         return RIGHTHEAVY;
     }
 

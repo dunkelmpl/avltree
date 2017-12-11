@@ -82,6 +82,7 @@ protected:
     void rotateRight(Node* pivotNode, Node* parent, Node* grandParent);
     void fixGrandParentAfterRotation(Node* newParent, Node* oldParent, Node* grandParent);
     BalanceFactor getNodeBalanceFactor(Node* node);
+    int getNodeBalance(Node* node);
 
 private:
     void deleteNode(Node* node, Node* parent);
