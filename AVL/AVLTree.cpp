@@ -14,7 +14,11 @@ AVLTree::~AVLTree()
 
 void AVLTree::print(TraversalType type)
 {
-    //TODO: implement
+    if (type != BFS) {
+        printDFS(type);
+    } else {
+        printBFS();
+    }
 }
 
 void AVLTree::printBFS()
